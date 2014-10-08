@@ -29,7 +29,9 @@ class Tika extends Carbon {
 	 */
 	public function __construct($time = null, $tz = null, $locale = null)
 	{
-		parent::__construct($time = null, $tz = null);
+        date_default_timezone_set($tz);
+
+		parent::__construct($time, $tz);
 
         $this->locale = is_null($locale) ? 'id' : $locale;
 
@@ -76,14 +78,15 @@ class Tika extends Carbon {
     private function getLanguagePack($locale)
     {
     	if(! isset($this->languagePack[$locale])) {
-    		$this->languagePack[$locale] = require $this->getLanguageFilePath($locale);
+    		$this->languagePack[$locale] = file_exists($this->getLanguageFilePath($locale)) ?
+                require $this->getLanguageFilePath($locale) : array();
     	}
 
     	return $this->languagePack[$locale];
     }
 
     /**
-     * set language file
+     * set language file path
      *
      * @param string $locale
      * @param string $path
@@ -95,7 +98,7 @@ class Tika extends Carbon {
 
 
     /**
-     * Get language path
+     * Get language file path
      *
      * @param string $locale
      * @return string

@@ -5,17 +5,22 @@ use Egig\Tika;
 class TikaTest extends PHPUnit_Framework_TestCase
 {
 
-    protected $tika;
-
-    protected function setUp()
+    function testTranlateDate()
     {
-        $this->tika = new Tika;
+        $date = (new Tika('first day of October 2014', 'Asia/Jakarta'));
+        
+        $this->assertEquals('Rabu', $date->format('l'));
+        $this->assertEquals('Rab', $date->format('D'));
+        $this->assertEquals('Oktober', $date->format('F'));
+        $this->assertEquals('Okt', $date->format('M'));
+        $this->assertEquals('Rabu, 01 Oktober 2014', $date->format('l, d F Y'));
     }
 
-    public function testTranlateDate()
+    function testNoLanguagepack()
     {
-        $day = (new Tika('first day of October 2014', 'Asia/Jakarta'))->format('l');
-        $this->assertEquals('Rabu', $day);
+    	$date = (new Tika('first day of October 2014', 'Asia/Jakarta'));
+    	$date->setLocale('de');
+        $this->assertEquals('Wednesday', $date->format('l'));
     }
 }
 
