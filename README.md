@@ -7,8 +7,9 @@ Example:
 
 ```php
 <?php
-	Tika::setLocale('id');
-	echo (new Tika('first day of October 2014', 'Asia/Jakarta'))->format('l');
+	$date = new Tika('first day of October 2014', 'Asia/Jakarta');
+	$date->setLocale('id');
+	echo $date->format('l');
 ?>
 ```
 
