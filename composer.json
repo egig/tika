@@ -1,0 +1,10 @@
+{
+    "require": {
+        "nesbot/Carbon": "*"
+    },
+    "autoload": {
+    	"psr-4":{
+	    	"Egig\\": "./src"
+    	}
+    }
+}
