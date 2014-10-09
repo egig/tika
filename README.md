@@ -1,6 +1,8 @@
 Tika
 ====
 
+[![Build Status](https://travis-ci.org/egig/tika.svg)](https://travis-ci.org/egig/tika)
+
 Tika is short of "Ketika" means "When". Tika is small library extends well-known datetime library `Carbon\Carbon` allows you to use localize months and days name directly for your application.
 
 Example:
