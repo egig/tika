@@ -1,4 +1,4 @@
-<?php return [
+<?php return array(
 
 	// A full textual representation of the day of the week
 	'Sunday' 	=> 'Minggu',
@@ -45,4 +45,4 @@
 	'Oct' 	=> 'Okt',
 	'Nov' 	=> 'Nov',
 	'Dec' 	=> 'Des'
-];
+);
