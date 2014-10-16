@@ -1,4 +1,6 @@
 {
+	"name": "egig/tika",
+    "description": "Carbon extension to localize month and day",
     "require": {
         "nesbot/Carbon": "*"
     },
