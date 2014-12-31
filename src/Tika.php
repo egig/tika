@@ -29,11 +29,9 @@ class Tika extends Carbon {
 	 */
 	public function __construct($time = null, $tz = null, $locale = null)
 	{
-		date_default_timezone_set($tz);
-
 		parent::__construct($time, $tz);
 
-		$this->locale = is_null($locale) ? 'id' : $locale;
+		$this->locale = is_null($locale) ? 'en' : $locale;
 
 		foreach (static::$builtInLanguages as $lang) {
 		  $this->setLanguageFilePath($lang, __DIR__ .'/l10n/'.$lang.'.php');
